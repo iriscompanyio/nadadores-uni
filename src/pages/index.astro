@@ -1,5 +1,8 @@
 ---
+import BannerInicio from "@/components/BannerInicio.vue";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Nadadores UNI"> HOME </Layout>
+<Layout title="Nadadores UNI">
+  <BannerInicio client:load />
+</Layout>

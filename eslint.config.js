@@ -1,9 +1,13 @@
 import eslintPluginAstro from "eslint-plugin-astro";
 import pluginVue from "eslint-plugin-vue";
 import eslintConfigPrettier from "eslint-config-prettier";
-export default [
+import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
+export default tseslint.config([
   // add more generic rule sets here, such as:
   // js.configs.recommended,
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   ...pluginVue.configs["flat/recommended"],
   {
@@ -13,4 +17,4 @@ export default [
     },
   },
   eslintConfigPrettier,
-];
+]);
