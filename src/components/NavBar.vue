@@ -8,8 +8,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import DropdownMenuSub from "./ui/dropdown-menu/DropdownMenuSub.vue";
 import DropdownMenuSubTrigger from "./ui/dropdown-menu/DropdownMenuSubTrigger.vue";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { Menu, Search, X, ChevronDown, ChevronUp } from "lucide-vue-next";
+import { disableScroll, enableScroll } from "@/lib/scroll";
 
 const pages = ref([
   {
@@ -43,6 +44,14 @@ const pages = ref([
 ]);
 
 const isOpen = ref(false);
+
+watch(isOpen, () => {
+  if (isOpen.value) {
+    disableScroll();
+  } else {
+    enableScroll();
+  }
+});
 </script>
 <template>
   <div class="hidden md:block bg-white h-[132px]">
@@ -96,7 +105,7 @@ const isOpen = ref(false);
       </button>
     </div>
   </div>
-  <div class="md:hidden h-[112px]">
+  <div class="md:hidden h-[112px] bg-white">
     <div
       v-if="!isOpen"
       class="flex justify-between items-center w-[90%] mx-auto h-full"
@@ -113,7 +122,7 @@ const isOpen = ref(false);
         <Menu class="w-6 h-6" />
       </button>
     </div>
-    <div v-else class="absolute w-screen h-screen bg-white z-10">
+    <div v-else class="fixed top-0 w-screen h-full bg-white z-10">
       <div
         class="flex justify-between items-center w-[95%] mx-auto h-[62px] border-b"
       >
@@ -131,8 +140,8 @@ const isOpen = ref(false);
           </button>
         </div>
       </div>
-      <div>
-        <ul class="flex flex-col">
+      <div class="h-[calc(100%-135px)] bg-white">
+        <ul class="flex flex-col h-full">
           <li v-for="page in pages" :key="page.label" class="group">
             <a
               :href="page.menu ? '#' : page.link"
@@ -149,9 +158,8 @@ const isOpen = ref(false);
                 class="w-6 h-6"
               />
             </a>
-            <!-- <div v-if="page.menu && page.isOpenMobile" class="grid"> -->
             <div
-              class="grid transition-all duration-500"
+              class="grid transition-all duration-300"
               :class="page.isOpenMobile ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
             >
               <ul class="pl-6 overflow-hidden">
@@ -172,7 +180,7 @@ const isOpen = ref(false);
           </li>
         </ul>
       </div>
-      <div class="p-4 border-t fixed bottom-0 w-full">
+      <div class="fixed bottom-0 p-4 border-t w-full bg-white">
         <button
           class="w-full h-[40px] bg-[#2F326E] text-white font-semibold rounded-lg"
         >

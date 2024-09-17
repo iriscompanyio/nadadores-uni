@@ -1,8 +1,10 @@
 ---
-import BannerInicio from "@/components/BannerInicio.vue";
+import BannerHome from "@/components/Home/BannerHome.vue";
 import Layout from "../layouts/Layout.astro";
+import Enroll from "@/components/Home/Enroll.astro";
 ---
 
 <Layout title="Nadadores UNI">
-  <BannerInicio client:load />
+  <BannerHome client:load />
+  <Enroll />
 </Layout>
