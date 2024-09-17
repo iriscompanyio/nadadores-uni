@@ -1,15 +1,14 @@
-import animate from "tailwindcss-animate"
+import animate from "tailwindcss-animate";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
   safelist: ["dark"],
   prefix: "",
-  
-    content: [
-      './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-    ],
-  
+
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+
   theme: {
     container: {
       center: true,
@@ -55,7 +54,7 @@ export default {
         },
       },
       borderRadius: {
-      	xl: "calc(var(--radius) + 4px)",
+        xl: "calc(var(--radius) + 4px)",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
@@ -71,10 +70,10 @@ export default {
         },
         "collapsible-down": {
           from: { height: 0 },
-          to: { height: 'var(--radix-collapsible-content-height)' },
+          to: { height: "var(--radix-collapsible-content-height)" },
         },
         "collapsible-up": {
-          from: { height: 'var(--radix-collapsible-content-height)' },
+          from: { height: "var(--radix-collapsible-content-height)" },
           to: { height: 0 },
         },
       },
@@ -84,7 +83,10 @@ export default {
         "collapsible-down": "collapsible-down 0.2s ease-in-out",
         "collapsible-up": "collapsible-up 0.2s ease-in-out",
       },
+      fontFamily: {
+        sans: ["Montserrat Variable", ...defaultTheme.fontFamily.sans],
+      },
     },
   },
   plugins: [animate],
-}
+};
