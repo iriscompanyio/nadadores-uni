@@ -122,7 +122,7 @@ watch(isOpen, () => {
         <Menu class="w-6 h-6" />
       </button>
     </div>
-    <div v-else class="fixed top-0 w-screen h-full bg-white z-10">
+    <div v-else class="fixed top-0 w-screen h-full bg-white z-50">
       <div
         class="flex justify-between items-center w-[95%] mx-auto h-[62px] border-b"
       >
