@@ -11,7 +11,7 @@ const slides = ["/swimming.png", "/swimming2.jpg", "/swimming3.jpg"];
 <template>
   <Carousel
     v-slot="{ scrollTo, selectedSlideIndex }"
-    class="relative"
+    class="relative z-20"
     :plugins="[
       Autoplay({
         delay: 6000,
