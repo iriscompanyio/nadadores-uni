@@ -6,6 +6,7 @@ import OurCourses from "@/components/Home/OurCourses.astro";
 import OurHeadquarters from "@/components/Home/OurHeadquarters.astro";
 import Numbers from "@/components/Home/Numbers.astro";
 import OurMethodology from "@/components/Home/OurMethodology.astro";
+import Testimonies from "@/components/Home/Testimonies.vue";
 ---
 
 <Layout title="Nadadores UNI">
@@ -14,5 +15,6 @@ import OurMethodology from "@/components/Home/OurMethodology.astro";
   <OurHeadquarters />
   <Numbers />
   <OurMethodology />
+  <Testimonies client:load />
   <Enroll />
 </Layout>
