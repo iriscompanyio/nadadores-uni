@@ -1,0 +1,134 @@
+<script setup lang="ts">
+import { Mail, User, Info } from "lucide-vue-next";
+import { Field, Form, ErrorMessage, type FormState } from "vee-validate";
+const required = (value: unknown) => {
+  if (!value) {
+    return "Este campo es requerido";
+  }
+  return true;
+};
+
+const validEmail = (value: unknown) => {
+  if (!value) {
+    return "Este campo es requerido";
+  }
+  if (
+    !String(value)
+      .toLowerCase()
+      .match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/)
+  ) {
+    return "Email inválido";
+  }
+  return true;
+};
+
+const onSubmit = (
+  values: Record<string, any>,
+  {
+    resetForm,
+  }: { resetForm: (state?: Partial<FormState<Record<string, any>>>) => void },
+) => {
+  console.log({ ...values, accept: !!values.accept });
+  resetForm();
+};
+</script>
+<template>
+  <div class="max-w-[90%] mx-auto mb-10 mt-32">
+    <p class="text-[32px] md:text-[44px] font-bold text-[#0D0D0D] mb-10">
+      Queremos seguir mejorando para ti
+    </p>
+    <div
+      class="flex flex-col-reverse md:flex-row md:space-x-8 gap-y-8 md:gap-y-0"
+    >
+      <Form
+        #default="{ values }"
+        @submit="onSubmit"
+        class="md:w-1/2 flex flex-col"
+      >
+        <div
+          class="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 w-full mb-6"
+        >
+          <div class="md:w-1/2">
+            <p class="text-[#191825BF] font-medium text-[17px] mb-2">Nombre</p>
+            <div class="relative">
+              <Field
+                type="text"
+                name="name"
+                :rules="required"
+                class="w-full bg-[#E7F2FF] rounded-[8px] p-4 pl-12 outline-none"
+              />
+              <ErrorMessage name="name" class="text-red-500 text-sm" />
+              <User class="w-6 h-6 absolute top-4 left-4 text-[#0B5EBF]" />
+            </div>
+          </div>
+          <div class="md:w-1/2">
+            <p class="text-[#191825BF] font-medium text-[17px] mb-2">E-mail</p>
+            <div class="relative">
+              <Field
+                type="text"
+                name="email"
+                :rules="validEmail"
+                class="w-full bg-[#E7F2FF] rounded-[8px] p-4 pl-12 outline-none"
+              />
+              <ErrorMessage name="email" class="text-red-500 text-sm" />
+              <Mail class="w-6 h-6 absolute top-4 left-4 text-[#0B5EBF]" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="text-[#191825BF] font-medium text-[17px] mb-2">
+            Comentario
+          </p>
+          <Field
+            type="text"
+            as="textarea"
+            rows="7"
+            :rules="required"
+            maxlength="1000"
+            name="comment"
+            class="w-full bg-[#E7F2FF] rounded-[8px] p-4 outline-none resize-none"
+            placeholder="Déjanos tu comentario acerca de tu experiencia en Nadadores Uni"
+          />
+          <ErrorMessage name="comment" class="text-red-500 text-sm" />
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center space-x-2">
+            <Info class="w-5 h-5 text-[#999999]" />
+            <span class="text-[#999999] font-medium text-[16px]"
+              >Deja un comentario para poder enviar tu mensaje.</span
+            >
+          </div>
+          <span class="text-[#4D4D4D] font-medium text-[14px]"
+            >{{ values.comment?.length | 0 }}/1000</span
+          >
+        </div>
+        <div class="flex space-x-4 items-center">
+          <Field
+            type="checkbox"
+            name="accept"
+            class="w-[26px] h-[26px]"
+            :value="true"
+          />
+          <p class="text-[#4D4D4D] font-medium text-[14px]">
+            Acepto recibir noticias e información sobre nuestros curso y
+            eventos.
+            <a href="#">
+              <span class="text-[#0D0D0D] underline"
+                >Leer acerca sobre nuestra política de tratamiento de
+                datos</span
+              >
+            </a>
+          </p>
+        </div>
+        <button
+          class="w-full py-3 bg-[#0B5EBF] text-white font-bold rounded-[16px] mt-6"
+        >
+          Enviar
+        </button>
+      </Form>
+      <div
+        class="md:w-1/2 bg-[url('/suggestions.png')] rounded-[24px] aspect-[597/513] bg-cover bg-center bg-no-repeat"
+      ></div>
+    </div>
+  </div>
+</template>
