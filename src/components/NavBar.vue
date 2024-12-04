@@ -12,7 +12,22 @@ import { ref, watch } from "vue";
 import { Menu, Search, X, ChevronDown, ChevronUp } from "lucide-vue-next";
 import { disableScroll, enableScroll } from "@/lib/scroll";
 
-const pages = ref([
+import { type Ref } from "vue";
+
+interface MenuItem {
+  label: string;
+  link: string;
+}
+
+interface Page {
+  label: string;
+  link: string;
+  isOpen?: boolean;
+  isOpenMobile?: boolean;
+  menu?: MenuItem[];
+}
+
+const pages: Ref<Page[]> = ref([
   {
     label: "Conócenos",
     link: "/aboutUs",
@@ -26,16 +41,16 @@ const pages = ref([
     link: "/products",
     isOpen: false,
     isOpenMobile: false,
-    menu: [
-      {
-        label: "Implementos",
-        link: "#",
-      },
-      {
-        label: "Tibu Puntos",
-        link: "#",
-      },
-    ],
+    // menu: [
+    //   {
+    //     label: "Implementos",
+    //     link: "/implements",
+    //   },
+    //   {
+    //     label: "Tibu Puntos",
+    //     link: "#",
+    //   },
+    // ],
   },
   {
     label: "Eventos",
