@@ -85,6 +85,8 @@ export default {
       },
       fontFamily: {
         sans: ["Montserrat Variable", ...defaultTheme.fontFamily.sans],
+        inter: ["Inter Variable", ...defaultTheme.fontFamily.sans],
+        roboto: ["Roboto", ...defaultTheme.fontFamily.sans],
       },
     },
   },
