@@ -6,7 +6,11 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-const slides = ["/swimming.png", "/swimming2.jpg", "/swimming3.jpg"];
+const slides = [
+  "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/uqfmlcvde5pqtudzpvkh",
+  "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/oceu2ugqyfvmxru3thdx",
+  "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/mjewy77htaoz05f88god",
+];
 </script>
 <template>
   <Carousel

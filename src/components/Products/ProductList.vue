@@ -12,47 +12,56 @@ const products = ref<Product[]>([
   {
     id: "1",
     name: "Gorro siliconado - Azul marino",
-    image: "/products/Gorro siliconado - Azul marino.png",
+    image:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/nvuokurr70gkv5p14ipd",
   },
   {
     id: "2",
     name: "Gorro siliconado - Blanco hueso",
-    image: "/products/Gorro siliconado - Blanco hueso.png",
+    image:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/ropl4n5wkytw2mdljsjy",
   },
   {
     id: "3",
     name: "Polo de algodón - Azul marino",
-    image: "/products/Polo de algodón - Azul marino.png",
+    image:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/vtnay9eikspdhc0ogkkx",
   },
   {
     id: "4",
     name: "Polo de algodón - Blanco hueso",
-    image: "/products/Polo de algodón - Blanco hueso.png",
+    image:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/huwvecvsaqrgxe2shpxk",
   },
   {
     id: "5",
     name: "Libreta - Azul acero",
-    image: "/products/Libreta - Azul acero.png",
+    image:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/dm1de8awvkkp8h9xlsbq",
   },
   {
     id: "6",
     name: "Gorro siliconado - Azul marino",
-    image: "/products/Gorro siliconado - Azul marino.png",
+    image:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/nvuokurr70gkv5p14ipd",
   },
   {
     id: "7",
     name: "Gorro siliconado - Blanco hueso",
-    image: "/products/Gorro siliconado - Blanco hueso.png",
+    image:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/ropl4n5wkytw2mdljsjy",
   },
   {
     id: "8",
     name: "Polo de algodón - Azul marino",
-    image: "/products/Polo de algodón - Azul marino.png",
+    image:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/vtnay9eikspdhc0ogkkx",
   },
   {
     id: "9",
     name: "Polo de algodón - Blanco hueso",
-    image: "/products/Polo de algodón - Blanco hueso.png",
+    image:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/huwvecvsaqrgxe2shpxk",
   },
 ]);
 </script>
