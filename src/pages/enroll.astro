@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Inscribir">
+  <div class="px-8 sm:px-20 py-6 sm:py-12 max-w-[1440px] mx-auto">
+    <p
+      class="text-[#2F326E] font-bold text-[33px] lg:text-[44px] mb-4 leading-tight text-center sm:text-left"
+    >
+      Inscribir
+    </p>
+    <iframe class="form-jotform" width="100%" height="500px"></iframe>
+  </div>
+</Layout>
+
+<script>
+
+  const getUserForms = async () => {
+    const result = await fetch(
+      "https://api.jotform.com/user/forms?apiKey=e7e4d7c1f4b9cdc6b68d6c098c47644d",
+    );
+    const data = await result.json();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const form = data.content.find((e: Record<string, any>) => e.status === 'ENABLED')
+    return form?.id;
+  };
+
+  const getForm = async () => {
+    const formId = await getUserForms();
+    console.log(formId)
+    const result = await fetch(
+      `https://api.jotform.com/form/${formId}?apiKey=e7e4d7c1f4b9cdc6b68d6c098c47644d`,
+    );
+    const data = await result.json();
+    const url = data.content.url;
+    return url;
+  };
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const url = await getForm();
+    const iframe = document.querySelector('.form-jotform') as HTMLIFrameElement;
+    console.log(url)
+    if(!iframe) return;
+    iframe.src = url;
+  });
+
+</script>

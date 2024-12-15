@@ -113,11 +113,13 @@ watch(isOpen, () => {
           </li>
         </ul>
       </div>
-      <button
-        class="bg-[#2F326E] px-8 py-4 rounded-full text-white text-xs font-bold"
-      >
-        INSCRÍBETE
-      </button>
+      <a href="/enroll">
+        <button
+          class="bg-[#2F326E] px-8 py-4 rounded-full text-white text-xs font-bold"
+        >
+          INSCRÍBETE
+        </button>
+      </a>
     </div>
   </div>
   <div class="md:hidden h-[112px] bg-white">
@@ -196,11 +198,13 @@ watch(isOpen, () => {
         </ul>
       </div>
       <div class="fixed bottom-0 p-4 border-t w-full bg-white">
-        <button
-          class="w-full h-[40px] bg-[#2F326E] text-white font-semibold rounded-lg"
-        >
-          Inscríbete
-        </button>
+        <a href="/enroll">
+          <button
+            class="w-full h-[40px] bg-[#2F326E] text-white font-semibold rounded-lg"
+          >
+            Inscríbete
+          </button>
+        </a>
       </div>
     </div>
   </div>
