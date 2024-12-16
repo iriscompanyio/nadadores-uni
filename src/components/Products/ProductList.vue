@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { Button } from "@/components/ui/button";
+import { ref } from "vue";
 
 interface Product {
   id: string;
@@ -81,7 +81,9 @@ const products = ref<Product[]>([
       </div>
       <div>
         <h3 class="text-xl font-semibold mb-4">{{ product.name }}</h3>
-        <Button class="w-full rounded-xl font-bold">Comprar</Button>
+        <a href="/products/sales">
+          <Button class="w-full rounded-xl font-bold">Comprar</Button>
+        </a>
       </div>
     </div>
   </div>
