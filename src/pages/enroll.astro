@@ -19,7 +19,6 @@ import Layout from "../layouts/Layout.astro";
   document.addEventListener("DOMContentLoaded", async () => {
     const url = await getForm("MATRÍCULA NADADORES UNI - DICIEMBRE 2024");
     const iframe = document.querySelector('.form-jotform') as HTMLIFrameElement;
-    console.log(url)
     if(!iframe) return;
     iframe.src = url;
   });

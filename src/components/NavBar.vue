@@ -6,11 +6,11 @@ import {
   DropdownMenuSubContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { disableScroll, enableScroll } from "@/lib/scroll";
+import { ChevronDown, ChevronUp, Menu, Search, X } from "lucide-vue-next";
+import { ref, watch } from "vue";
 import DropdownMenuSub from "./ui/dropdown-menu/DropdownMenuSub.vue";
 import DropdownMenuSubTrigger from "./ui/dropdown-menu/DropdownMenuSubTrigger.vue";
-import { ref, watch } from "vue";
-import { Menu, Search, X, ChevronDown, ChevronUp } from "lucide-vue-next";
-import { disableScroll, enableScroll } from "@/lib/scroll";
 
 import { type Ref } from "vue";
 
@@ -30,7 +30,7 @@ interface Page {
 const pages: Ref<Page[]> = ref([
   {
     label: "Conócenos",
-    link: "/aboutUs",
+    link: "/",
   },
   {
     label: "Certificados",
@@ -56,6 +56,10 @@ const pages: Ref<Page[]> = ref([
     label: "Eventos",
     link: "/events",
   },
+  {
+    label: "Ruta del Nadador",
+    link: "/swimmers-route",
+  },
 ]);
 
 const isOpen = ref(false);
@@ -69,16 +73,16 @@ watch(isOpen, () => {
 });
 </script>
 <template>
-  <div class="hidden md:block bg-white h-[132px]">
+  <div class="hidden lg:block bg-white h-[132px]">
     <div
-      class="w-[95%] lg:w-[82%] h-full mx-auto flex items-center justify-between"
+      class="w-[95%] xl:w-[82%] h-full mx-auto flex items-center justify-between"
     >
       <a href="/">
         <img src="/logo.svg" alt="logo" />
       </a>
       <div>
         <ul class="flex gap-5 lg:gap-8 xl:gap-12">
-          <li v-for="page in pages" :key="page.label" class="w-[80px] group">
+          <li v-for="page in pages" :key="page.label" class="group">
             <DropdownMenu v-if="page.menu" v-model:open="page.isOpen">
               <DropdownMenuTrigger>
                 <span
@@ -122,7 +126,7 @@ watch(isOpen, () => {
       </a>
     </div>
   </div>
-  <div class="md:hidden h-[112px] bg-white">
+  <div class="lg:hidden h-[112px] bg-white">
     <div
       v-if="!isOpen"
       class="flex justify-between items-center w-[90%] mx-auto h-full"

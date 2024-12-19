@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Mail, User, Info } from "lucide-vue-next";
-import { Field, Form, ErrorMessage, type FormState } from "vee-validate";
+import { Info, Mail, User } from "lucide-vue-next";
+import { ErrorMessage, Field, Form, type FormState } from "vee-validate";
 const required = (value: unknown) => {
   if (!value) {
     return "Este campo es requerido";
@@ -28,7 +28,6 @@ const onSubmit = (
     resetForm,
   }: { resetForm: (state?: Partial<FormState<Record<string, any>>>) => void },
 ) => {
-  console.log({ ...values, accept: !!values.accept });
   resetForm();
 };
 </script>
