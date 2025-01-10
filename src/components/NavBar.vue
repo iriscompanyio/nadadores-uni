@@ -30,7 +30,7 @@ interface Page {
 const pages: Ref<Page[]> = ref([
   {
     label: "Conócenos",
-    link: "/",
+    link: "/aboutus",
   },
   {
     label: "Certificados",

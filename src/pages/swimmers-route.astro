@@ -1,10 +1,10 @@
 ---
-import Levels from "@/components/AboutUs/Levels.vue";
 import Button from "@/components/ui/button/Button.vue";
 import Layout from "../layouts/Layout.astro";
+import LevelsCarousel from "@/components/swimmers-route/LevelsCarousel.vue";
 ---
 
-<Layout title="Conócenos">
+<Layout title="Ruta del Nadador">
   <div class="bg-[#F1F3FF] pt-12 w-full">
     <div
       class="max-w-screen-2xl flex flex-col m-auto w-full px-5 md:px-14 gap-y-12 mb-16"
@@ -48,20 +48,6 @@ import Layout from "../layouts/Layout.astro";
           class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6 items-end w-full"
         >
           <div class="w-full">
-            <p class="text-[#666666] text-xs font-semibold mb-2">Nombre</p>
-            <input
-              class="w-full border-[#CCCCCC] rounded-lg border-[1px] p-3 outline-none"
-              placeholder="Escribe el nombre del alumno"
-            />
-          </div>
-          <div class="w-full">
-            <p class="text-[#666666] text-xs font-semibold mb-2">Apellidos</p>
-            <input
-              class="w-full border-[#CCCCCC] rounded-lg border-[1px] p-3 outline-none"
-              placeholder="Escribe los apellidos del alumno"
-            />
-          </div>
-          <div class="w-full">
             <p class="text-[#666666] text-xs font-semibold mb-2">Nº DNI</p>
             <input
               class="w-full border-[#CCCCCC] rounded-lg border-[1px] p-3 outline-none"
@@ -70,8 +56,14 @@ import Layout from "../layouts/Layout.astro";
           </div>
           <Button class="rounded-xl w-full" size="lg"> Buscar </Button>
         </div>
+        <div>
+          <p class="font-inter font-semibold text-sm text-[#666666] mb-2">
+            Resultados:
+          </p>
+          <p class="font-inter text-sm text-[#666666]">Selene Torres Urquizo</p>
+        </div>
       </div>
     </div>
-    <Levels client:load />
+    <LevelsCarousel client:load />
   </div>
 </Layout>

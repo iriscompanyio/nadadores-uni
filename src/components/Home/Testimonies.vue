@@ -9,22 +9,25 @@ import { MoveLeft, MoveRight } from "lucide-vue-next";
 
 const cards = [
   {
-    name: "Selene Torres",
+    name: "Lizet Meza",
     testimonial:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    photo: "https://i.pravatar.cc/128?u=a042581f4e29026706d",
+    photo:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/pckdz7fnr7vsxell1pfg",
   },
   {
-    name: "Roberto Sanchez",
+    name: "Israel Leon",
     testimonial:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    photo: "https://i.pravatar.cc/128?u=a042581f4e29026707d",
+    photo:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/ve5c5holpsgnjnab0sjs",
   },
   {
-    name: "Cristian Vega",
+    name: "Katteryne Polo",
     testimonial:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    photo: "https://i.pravatar.cc/128?u=a042581f4e29026702d",
+    photo:
+      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/w9nok3vt5qz5xrg2fymx",
   },
 ];
 </script>

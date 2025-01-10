@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { Info, Mail, User } from "lucide-vue-next";
 import { ErrorMessage, Field, Form, type FormState } from "vee-validate";
+import { ref, watch } from "vue";
+
+const preview = ref("");
 const required = (value: unknown) => {
   if (!value) {
     return "Este campo es requerido";
@@ -22,12 +25,21 @@ const validEmail = (value: unknown) => {
   return true;
 };
 
+const handleFile = (e: Event) => {
+  const files = (e.target as HTMLInputElement).files;
+  if (files && files.length > 0) {
+    preview.value = URL.createObjectURL(files[0]);
+  }
+};
+
 const onSubmit = (
   values: Record<string, any>,
   {
     resetForm,
   }: { resetForm: (state?: Partial<FormState<Record<string, any>>>) => void },
 ) => {
+  console.log(values);
+  preview.value = "";
   resetForm();
 };
 </script>
@@ -74,21 +86,64 @@ const onSubmit = (
             </div>
           </div>
         </div>
-        <div>
-          <p class="text-[#191825BF] font-medium text-[17px] mb-2">
-            Comentario
-          </p>
-          <Field
-            type="text"
-            as="textarea"
-            rows="7"
-            :rules="required"
-            maxlength="1000"
-            name="comment"
-            class="w-full bg-[#E7F2FF] rounded-[8px] p-4 outline-none resize-none"
-            placeholder="Déjanos tu comentario acerca de tu experiencia en Nadadores Uni"
-          />
-          <ErrorMessage name="comment" class="text-red-500 text-sm" />
+        <div class="flex space-x-6">
+          <div class="w-[70%]">
+            <p class="text-[#191825BF] font-medium text-[17px] mb-2">
+              Comentario
+            </p>
+            <Field
+              type="text"
+              as="textarea"
+              rows="7"
+              :rules="required"
+              maxlength="1000"
+              name="comment"
+              class="w-full bg-[#E7F2FF] rounded-[8px] p-4 outline-none resize-none"
+              placeholder="Déjanos tu comentario acerca de tu experiencia en Nadadores Uni"
+            />
+            <ErrorMessage name="comment" class="text-red-500 text-sm" />
+          </div>
+          <div class="flex flex-col w-[30%]">
+            <p class="text-[#191825BF] font-medium text-[17px] mb-2">Foto</p>
+            <div class="relative mb-4 h-full">
+              <Field
+                v-slot="{ handleChange, handleBlur }"
+                :rules="required"
+                name="file"
+              >
+                <label
+                  for="file"
+                  class="w-full h-[200px] bg-[#E7F2FF] rounded-[8px] outline-none flex items-center justify-center cursor-pointer"
+                >
+                  <img
+                    v-if="!preview"
+                    src="/photo-plus.svg"
+                    alt=""
+                    class="text-[#0b5ebf] h-[30px] w-[30px]"
+                  />
+                  <img
+                    v-else
+                    :src="preview"
+                    alt=""
+                    class="h-[200px] w-[200px] object-cover rounded-lg"
+                  />
+                  <input
+                    id="file"
+                    type="file"
+                    @change="
+                      (e: Event) => {
+                        handleChange(e);
+                        handleFile(e);
+                      }
+                    "
+                    @blur="handleBlur"
+                    class="hidden"
+                  />
+                </label>
+              </Field>
+              <ErrorMessage name="file" class="text-red-500 text-sm" />
+            </div>
+          </div>
         </div>
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center space-x-2">
@@ -101,7 +156,7 @@ const onSubmit = (
             >{{ values.comment?.length | 0 }}/1000</span
           >
         </div>
-        <div class="flex space-x-4 items-center">
+        <div class="flex space-x-4 items-center mt-6">
           <Field
             type="checkbox"
             name="accept"
