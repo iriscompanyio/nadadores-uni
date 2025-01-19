@@ -103,7 +103,7 @@ const onSubmit = (
             />
             <ErrorMessage name="comment" class="text-red-500 text-sm" />
           </div>
-          <div class="flex flex-col w-[30%]">
+          <div class="flex flex-col w-[30%] min-w-[130px]">
             <p class="text-[#191825BF] font-medium text-[17px] mb-2">Foto</p>
             <div class="relative mb-4 h-full">
               <Field

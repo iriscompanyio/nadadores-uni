@@ -1,6 +1,6 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Table from "../components/Certificates/Table.vue";
+import Layout from "../../layouts/Layout.astro";
+import Table from "../../components/Certificates/Table.vue";
 import { Button } from "@/components/ui/button";
 ---
 
@@ -26,9 +26,11 @@ import { Button } from "@/components/ui/button";
           Si eres egresado o estás a punto de egresar y necesitas el certificado
           con urgencia, solicítalo aquí.
         </p>
-        <Button size="lg" class="rounded-lg font-bold w-[200px]"
-          >Solicitar</Button
-        >
+        <a href="/certificates/emision">
+          <Button size="lg" class="rounded-lg font-bold w-[200px]"
+            >Solicitar
+          </Button>
+        </a>
       </div>
       <img
         class="hidden lg:block absolute bottom-0 right-20"

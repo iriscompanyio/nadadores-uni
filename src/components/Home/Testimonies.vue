@@ -81,13 +81,21 @@ const cards = [
         </div>
         <button
           class="w-[64px] h-[64px] md:w-[100px] md:h-[100px] border-2 rounded-full flex justify-center items-center absolute -bottom-20 left-0 md:top-1/2 md:-left-32 md:-translate-y-1/2 bg-white hover:bg-[#3FB4C6] hover:border-none group"
-          @click="scrollTo(selectedSlideIndex - 1)"
+          @click="
+            selectedSlideIndex === 0
+              ? scrollTo(cards.length - 1)
+              : scrollTo(selectedSlideIndex - 1)
+          "
         >
           <MoveLeft class="w-6 h-6 text-[#2F326E] group-hover:text-white" />
         </button>
         <button
           class="w-[64px] h-[64px] md:w-[100px] md:h-[100px] border-2 rounded-full flex justify-center items-center absolute -bottom-20 right-0 md:top-1/2 md:-right-32 md:-translate-y-1/2 bg-white hover:bg-[#3FB4C6] hover:border-none group"
-          @click="scrollTo(selectedSlideIndex + 1)"
+          @click="
+            selectedSlideIndex === cards.length - 1
+              ? scrollTo(0)
+              : scrollTo(selectedSlideIndex + 1)
+          "
         >
           <MoveRight class="w-6 h-6 text-[#2F326E] group-hover:text-white" />
         </button>

@@ -33,24 +33,26 @@ const pages: Ref<Page[]> = ref([
     link: "/aboutus",
   },
   {
-    label: "Certificados",
-    link: "/certificates",
+    label: "Trámites",
+    link: "/tramites",
+    isOpen: false,
+    isOpenMobile: false,
+    menu: [
+      {
+        label: "Certificados",
+        link: "/certificates",
+      },
+      {
+        label: "Recuperaciones",
+        link: "/retakes",
+      },
+    ],
   },
   {
     label: "Productos",
     link: "/products",
     isOpen: false,
     isOpenMobile: false,
-    // menu: [
-    //   {
-    //     label: "Implementos",
-    //     link: "/implements",
-    //   },
-    //   {
-    //     label: "Tibu Puntos",
-    //     link: "#",
-    //   },
-    // ],
   },
   {
     label: "Eventos",
@@ -73,7 +75,9 @@ watch(isOpen, () => {
 });
 </script>
 <template>
-  <div class="hidden lg:block bg-white h-[132px]">
+  <div
+    class="hidden lg:block bg-white h-[100px] sticky top-0 w-full z-30 shadow"
+  >
     <div
       class="w-[95%] xl:w-[82%] h-full mx-auto flex items-center justify-between"
     >
@@ -93,18 +97,15 @@ watch(isOpen, () => {
                 </span>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" class="rounded-lg">
-                <DropdownMenuSub v-for="sub in page.menu" :key="sub.label">
-                  <DropdownMenuSubTrigger>
+                <a :href="sub.link" v-for="sub in page.menu" :key="sub.label">
+                  <DropdownMenuItem>
                     <div class="w-[150px] h-[25px] flex items-center">
                       <span class="text-sm text-[#69607B] font-bold">{{
                         sub.label
                       }}</span>
                     </div>
-                  </DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent>
-                    <DropdownMenuItem> {{ sub.label }} </DropdownMenuItem>
-                  </DropdownMenuSubContent>
-                </DropdownMenuSub>
+                  </DropdownMenuItem>
+                </a>
               </DropdownMenuContent>
             </DropdownMenu>
             <a
@@ -117,7 +118,7 @@ watch(isOpen, () => {
           </li>
         </ul>
       </div>
-      <a href="/enroll">
+      <a href="/matricula">
         <button
           class="bg-[#2F326E] px-8 py-4 rounded-full text-white text-xs font-bold"
         >
@@ -126,7 +127,7 @@ watch(isOpen, () => {
       </a>
     </div>
   </div>
-  <div class="lg:hidden h-[112px] bg-white">
+  <div class="lg:hidden h-[80px] bg-white sticky top-0 w-full z-30">
     <div
       v-if="!isOpen"
       class="flex justify-between items-center w-[90%] mx-auto h-full"
@@ -202,7 +203,7 @@ watch(isOpen, () => {
         </ul>
       </div>
       <div class="fixed bottom-0 p-4 border-t w-full bg-white">
-        <a href="/enroll">
+        <a href="/matricula">
           <button
             class="w-full h-[40px] bg-[#2F326E] text-white font-semibold rounded-lg"
           >

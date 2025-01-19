@@ -3,6 +3,7 @@ const getUserForms = async (title: string) => {
     `https://api.jotform.com/user/forms?apiKey=e7e4d7c1f4b9cdc6b68d6c098c47644d&limit=1000`,
   );
   const data = await result.json();
+  console.log(data);
   const form = data.content.find((e: Record<string, any>) => e.title === title);
   return form?.id;
 };

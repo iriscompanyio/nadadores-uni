@@ -12,8 +12,10 @@ import {
   createColumnHelper,
   FlexRender,
   getCoreRowModel,
+  getFilteredRowModel,
   getPaginationRowModel,
   useVueTable,
+  type ColumnFiltersState,
 } from "@tanstack/vue-table";
 import { students, type Student } from "@/components/Certificates/Data";
 import { computed, ref } from "vue";
@@ -32,6 +34,7 @@ const columns = [
   columnHelper.accessor("name", {
     header: () => "Nombre",
     cell: (info) => info.getValue(),
+    filterFn: "includesString",
   }),
   columnHelper.accessor("certificateCode", {
     header: () => "Código Certificado",
@@ -40,6 +43,7 @@ const columns = [
   columnHelper.accessor("studentCode", {
     header: () => "Código Alumno",
     cell: (info) => info.getValue(),
+    filterFn: "includesString",
   }),
   columnHelper.accessor("period", {
     header: () => "Periodos",
@@ -55,6 +59,8 @@ const columns = [
   }),
 ];
 
+const columnFilters = ref<ColumnFiltersState>([]);
+
 const table = useVueTable({
   get data() {
     return data.value;
@@ -62,11 +68,13 @@ const table = useVueTable({
   columns,
   getCoreRowModel: getCoreRowModel(),
   getPaginationRowModel: getPaginationRowModel(),
+  getFilteredRowModel: getFilteredRowModel(),
   initialState: {
     pagination: {
       pageIndex: 0,
       pageSize: 5,
     },
+    columnFilters: columnFilters.value,
   },
 });
 
@@ -100,22 +108,43 @@ const visiblePageNumbers = computed(() => {
 </script>
 <template>
   <div class="flex flex-col gap-8">
-    <div class="flex gap-6 items-end w-full flex-wrap">
-      <div class="w-[350px]">
-        <p class="text-[#666666] text-xs font-semibold mb-2">Nombre</p>
+    <div class="flex gap-5 items-end w-full flex-wrap">
+      <div class="w-full md:w-[350px]">
+        <p class="text-[#666666] text-xs font-semibold mb-2">
+          Nombre y Apellidos
+        </p>
         <input
           class="w-full border-[#CCCCCC] rounded-lg border-[1px] p-3 outline-none"
-          placeholder="Escribe el nombre del alumno"
+          placeholder="Escribe el nombre o apellido del alumno"
+          @input="
+            (e: Event) => {
+              console.log('gaaa');
+              const target = e.target as HTMLInputElement;
+              table.setColumnFilters([
+                ...columnFilters,
+                { id: 'name', value: target.value },
+              ]);
+            }
+          "
         />
       </div>
-      <div class="w-[350px]">
-        <p class="text-[#666666] text-xs font-semibold mb-2">Apellidos</p>
+      <div class="w-full md:w-[280px]">
+        <p class="text-[#666666] text-xs font-semibold mb-2">Código</p>
         <input
           class="w-full border-[#CCCCCC] rounded-lg border-[1px] p-3 outline-none"
-          placeholder="Escribe los apellidos del alumno"
+          placeholder="Escribe el código del alumno"
+          @input="
+            (e: Event) => {
+              console.log('gaaa');
+              const target = e.target as HTMLInputElement;
+              table.setColumnFilters([
+                ...columnFilters,
+                { id: 'studentCode', value: target.value },
+              ]);
+            }
+          "
         />
       </div>
-      <Button class="rounded-xl w-[350px]" size="lg"> Buscar </Button>
     </div>
     <div class="font-inter">
       <Table>

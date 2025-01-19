@@ -1,3 +1,7 @@
+---
+import Croquis from "./Croquis.vue";
+---
+
 <div class="relative overflow-x-clip">
   <div
     class="relative flex flex-col justify-center items-center lg:justify-between py-8 lg:py-12 w-[80%] 2xl:w-[70%] mx-auto z-20"
@@ -21,10 +25,11 @@
           >
             Piscina Ricardo Bentín
           </p>
-          <button
-            class="bg-[#0B5EBF] rounded-[16px] text-white py-3 font-bold w-full"
-            >Ver el croquis</button
-          >
+          <Croquis
+            client:load
+            title="Piscina Ricardo Bentín"
+            url="https://maps-api-ssl.google.com/maps?hl=en-US&ll=-12.029103,-77.038263&output=embed&q=Prol.+los+Molinos+1060,+R%C3%ADmac+15094,+Per%C3%BA+(Prol.+los+Molinos+1060)&z=17"
+          />
         </div>
       </div>
       <div
@@ -40,10 +45,11 @@
           >
             Piscina Mercedes Cabello
           </p>
-          <button
-            class="bg-[#0B5EBF] rounded-[16px] text-white py-3 font-bold w-full"
-            >Ver el croquis</button
-          >
+          <Croquis
+            client:load
+            title="Piscina Mercedes Cabello"
+            url="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d975.5627443136163!2d-77.046088!3d-12.026235!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cf24c8f8c965%3A0x713a6a64cfddba46!2sColegio%20Emblem%C3%A1tico%20Mercedes%20Cabello%20de%20Carbonera!5e0!3m2!1ses!2spe!4v1737241168389!5m2!1ses!2spe"
+          />
         </div>
       </div>
     </div>

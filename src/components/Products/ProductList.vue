@@ -39,30 +39,6 @@ const products = ref<Product[]>([
     image:
       "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/dm1de8awvkkp8h9xlsbq",
   },
-  {
-    id: "6",
-    name: "Gorro siliconado - Azul marino",
-    image:
-      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/nvuokurr70gkv5p14ipd",
-  },
-  {
-    id: "7",
-    name: "Gorro siliconado - Blanco hueso",
-    image:
-      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/ropl4n5wkytw2mdljsjy",
-  },
-  {
-    id: "8",
-    name: "Polo de algodón - Azul marino",
-    image:
-      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/vtnay9eikspdhc0ogkkx",
-  },
-  {
-    id: "9",
-    name: "Polo de algodón - Blanco hueso",
-    image:
-      "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/huwvecvsaqrgxe2shpxk",
-  },
 ]);
 </script>
 <template>
