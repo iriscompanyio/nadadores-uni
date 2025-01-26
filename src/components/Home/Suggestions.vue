@@ -32,15 +32,39 @@ const handleFile = (e: Event) => {
   }
 };
 
+const auth = () => btoa(`${import.meta.env.PUBLIC_AUTH_BASIC_USER}:${import.meta.env.PUBLIC_AUTH_BASIC_PASS}`);
+
 const onSubmit = (
   values: Record<string, any>,
   {
     resetForm,
   }: { resetForm: (state?: Partial<FormState<Record<string, any>>>) => void },
 ) => {
-  console.log(values);
-  preview.value = "";
-  resetForm();
+  console.log(import.meta.env)
+  const formData = new FormData();
+  formData.append("name", values.name);
+  formData.append("email", values.email);
+  formData.append("comment", values.comment);
+  formData.append("accept", values.accept);
+  formData.append("photo", values.file);
+
+  fetch(`${import.meta.env.PUBLIC_API_URL}/services/email/notification`, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${auth()}`,
+    },
+    body: formData,
+  })
+    .then((response) => {
+      preview.value = "";
+      resetForm();
+      return response.json();
+    })
+    // eslint-disable-next-line no-console
+    .then((data) => console.log(data))
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 };
 </script>
 <template>
