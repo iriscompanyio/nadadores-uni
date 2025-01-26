@@ -40,7 +40,6 @@ const onSubmit = (
     resetForm,
   }: { resetForm: (state?: Partial<FormState<Record<string, any>>>) => void },
 ) => {
-  console.log(import.meta.env)
   const formData = new FormData();
   formData.append("name", values.name);
   formData.append("email", values.email);
