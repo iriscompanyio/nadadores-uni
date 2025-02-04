@@ -30,7 +30,7 @@ interface Page {
 const pages: Ref<Page[]> = ref([
   {
     label: "Conócenos",
-    link: "/aboutus",
+    link: "/conocenos",
   },
   {
     label: "Trámites",
@@ -40,27 +40,27 @@ const pages: Ref<Page[]> = ref([
     menu: [
       {
         label: "Certificados",
-        link: "/certificates",
+        link: "/certificados",
       },
       {
         label: "Recuperaciones",
-        link: "/retakes",
+        link: "/recuperaciones",
       },
     ],
   },
   {
     label: "Productos",
-    link: "/products",
+    link: "/productos",
     isOpen: false,
     isOpenMobile: false,
   },
   {
     label: "Eventos",
-    link: "/events",
+    link: "/eventos",
   },
   {
     label: "Ruta del Nadador",
-    link: "/swimmers-route",
+    link: "/ruta-nadador",
   },
 ]);
 

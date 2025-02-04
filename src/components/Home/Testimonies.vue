@@ -10,22 +10,21 @@ import { MoveLeft, MoveRight } from "lucide-vue-next";
 const cards = [
   {
     name: "Lizet Meza",
-    testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    testimonial: "Llevo dos años en la comunidad y es increíble cómo he mejorado. Los profes no solo te enseñan técnica, sino que crean un ambiente donde todos nos apoyamos. Me encanta que después de las clases siempre nos quedamos charlando y compartiendo consejos.",
     photo:
       "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/pckdz7fnr7vsxell1pfg",
   },
   {
     name: "Israel Leon",
     testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      "Al principio venía solo a aprender a nadar, pero encontré mucho más que eso. Los compañeros son geniales y siempre hay alguien dispuesto a ayudar. Me motiva ver cómo todos progresamos juntos y celebramos los logros de cada uno.",
     photo:
       "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/ve5c5holpsgnjnab0sjs",
   },
   {
     name: "Katteryne Polo",
     testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      "La mejor decisión fue unirme a esta comunidad. El ambiente es súper motivador y los profes tienen una paciencia infinita. Me encanta que organizamos actividades juntos fuera de las clases. Es como una segunda familia.",
     photo:
       "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/w9nok3vt5qz5xrg2fymx",
   },
