@@ -17,5 +17,7 @@ services:
       - LETSENCRYPT_HOST=dev.nadadoresuni.com
       - LETSENCRYPT_EMAIL=jcanahuirev@gmail.com
       - NODE_ENV=production
+    env_file:
+      - ./.env
     networks:
       - nginx-proxy
