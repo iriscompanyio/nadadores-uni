@@ -17,7 +17,7 @@ import {
   useVueTable,
   type ColumnFiltersState,
 } from "@tanstack/vue-table";
-import { students, type Student } from "@/components/Certificates/Data";
+import { type Student, realData } from "@/components/Certificates/Data";
 import { computed, ref } from "vue";
 import {
   ChevronLeft,
@@ -26,7 +26,7 @@ import {
   ChevronsRight,
 } from "lucide-vue-next";
 
-const data = ref([...students]);
+const data = ref([...realData]);
 
 const columnHelper = createColumnHelper<Student>();
 
@@ -105,6 +105,20 @@ const visiblePageNumbers = computed(() => {
     table.getState().pagination.pageIndex + 2,
   ];
 });
+
+const fetchData = async () => {
+  const res = await fetch(
+    'api/alumnos',  
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  )
+  data.value = await res.json(); 
+}
+
 </script>
 <template>
   <div class="flex flex-col gap-8">
