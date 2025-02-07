@@ -204,7 +204,7 @@ const onSubmit = (
         </button>
       </Form>
       <div
-        class="md:w-1/2 bg-[url('https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/t0t8gi5f4gy9lpdbynwe')] rounded-[24px] aspect-[597/513] bg-cover bg-center bg-no-repeat"
+        class="md:w-1/2 bg-[url('https://res.cloudinary.com/dqpg07sfp/image/upload/v1738950642/Queremos_seguir_mejorando_ykaukp.jpg')] rounded-[24px] aspect-[597/513] bg-cover bg-center bg-no-repeat"
       ></div>
     </div>
   </div>
