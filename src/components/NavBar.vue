@@ -82,7 +82,7 @@ watch(isOpen, () => {
       class="w-[95%] xl:w-[82%] h-full mx-auto flex items-center justify-between"
     >
       <a href="/">
-        <img src="/logo.svg" alt="logo" />
+        <img src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738901474/Recurso_10_fkrrv5.png" alt="logo" />
       </a>
       <div>
         <ul class="flex gap-5 lg:gap-8 xl:gap-12">
@@ -134,7 +134,7 @@ watch(isOpen, () => {
     >
       <div class="w-[154px]">
         <a href="/">
-          <img src="/logo.svg" alt="logo" />
+          <img src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738901474/Recurso_10_fkrrv5.png" alt="logo" />
         </a>
       </div>
       <button
@@ -150,7 +150,7 @@ watch(isOpen, () => {
       >
         <div class="w-[154px]">
           <a href="/">
-            <img src="/logo.svg" alt="logo" />
+            <img src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738901474/Recurso_10_fkrrv5.png" alt="logo" />
           </a>
         </div>
         <div>
