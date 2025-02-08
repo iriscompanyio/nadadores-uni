@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 defineProps<{
   group: number;
-  userLevel: number;
+  userLevel?: number;
 }>();
 
 const levels = ref([
@@ -24,12 +24,12 @@ const levels = ref([
     <img src="/levels.png" alt="levels" />
     <span
       class="absolute top-[5%] left-[7.2%] text-[#2F326E] text-[2.5vw] font-bold"
-      :class="{ 'left-[6%]': group > 0 }"
+      :class="{ 'left-[5.9%]': group > 0 }"
       >{{ Number(group * 10 + 0) }}</span
     >
     <span
       class="absolute top-[5%] right-[7.2%] text-[#2F326E] text-[2.5vw] font-bold"
-      :class="{ 'right-[6.3%]': group > 0 }"
+      :class="{ 'right-[6.2%]': group > 0 }"
       >{{ Number(group * 10 + 9) }}</span
     >
     <div
@@ -84,6 +84,18 @@ const levels = ref([
               Nivel {{ group * 10 + 5 }}: Cuaderno de la academia gratis (precio
               regular: 18 soles).
             </p>
+          </div>
+        </div>
+        <div v-if="userLevel === group * 10 + index - 1">
+          <div class="absolute -top-[100px] -left-8 animate-bounce"
+          :class="{'-top-[140px]': index === 5}">
+            <div class="relative w-20 h-[90px] shadow-xl">
+              <div class="bg-[#2F326E] rounded-md w-full h-full p-2">
+                <p class="text-white font-semibold text-center text-sm">Nivel {{ group * 10 + index  }}</p>
+                <img src="/baby-shark.png" alt="">
+              </div>
+              <div class="bg-[#2F326E] absolute -bottom-2 left-1/2 -translate-x-1/2 rotate-45 w-4 h-4"></div>
+            </div>
           </div>
         </div>
       </div>
