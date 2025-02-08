@@ -9,7 +9,7 @@ import Autoplay from "embla-carousel-autoplay";
 const slides = [
   "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/uqfmlcvde5pqtudzpvkh",
   "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/oceu2ugqyfvmxru3thdx",
-  "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/mjewy77htaoz05f88god",
+  "https://res.cloudinary.com/dqpg07sfp/image/upload/v1738975638/Portada_03_dyvkue.png",
 ];
 </script>
 <template>
