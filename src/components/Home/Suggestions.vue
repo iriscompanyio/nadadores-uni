@@ -189,7 +189,7 @@ const onSubmit = (
           <p class="text-[#4D4D4D] font-medium text-[14px]">
             Acepto recibir noticias e información sobre nuestros curso y
             eventos.
-            <a href="#">
+            <a href="https://drive.google.com/file/d/1j5bbAPuFsAi3nVOhfUlNJ23rRFdDZTBp/view?usp=sharing" target="_blank">
               <span class="text-[#0D0D0D] underline"
                 >Leer acerca sobre nuestra política de tratamiento de
                 datos</span

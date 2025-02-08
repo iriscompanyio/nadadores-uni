@@ -57,7 +57,7 @@ const products = ref<Product[]>([
       </div>
       <div>
         <h3 class="text-xl font-semibold mb-4">{{ product.name }}</h3>
-        <a href="/products/sales">
+        <a href="/productos/ventas">
           <Button class="w-full rounded-xl font-bold">Comprar</Button>
         </a>
       </div>
