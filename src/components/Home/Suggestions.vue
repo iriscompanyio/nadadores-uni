@@ -46,13 +46,11 @@ const onSubmit = (
   formData.append("comment", values.comment);
   formData.append("accept", values.accept);
   formData.append("photo", values.file);
-  const boundary = 'Ndacbndypsrosyfdaomnpoyioicoiicbcodo';
 
   fetch(`${import.meta.env.PUBLIC_API_URL}/services/email/notification`, {
     method: "POST",
     headers: {
       Authorization: `Basic ${auth()}`,
-      'Content-Type': `multipart/form-data; boundary=${boundary}`,
     },
     body: formData,
   })
