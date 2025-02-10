@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { Info, Mail, User } from "lucide-vue-next";
 import { ErrorMessage, Field, Form, type FormState } from "vee-validate";
-import { ref, watch } from "vue";
+import { ref } from "vue";
+import { useToast } from "@/components/ui/toast/use-toast";
+import Toaster from "@/components/ui/toast/Toaster.vue";
+const { toast } = useToast();
 
 const preview = ref("");
 const required = (value: unknown) => {
@@ -29,10 +32,17 @@ const handleFile = (e: Event) => {
   const files = (e.target as HTMLInputElement).files;
   if (files && files.length > 0) {
     preview.value = URL.createObjectURL(files[0]);
+    const input: HTMLInputElement | null = document.getElementById(
+      "file",
+    ) as HTMLInputElement;
+    input.value = "";
   }
 };
 
-const auth = () => btoa(`${import.meta.env.PUBLIC_AUTH_BASIC_USER}:${import.meta.env.PUBLIC_AUTH_BASIC_PASS}`);
+const auth = () =>
+  btoa(
+    `${import.meta.env.PUBLIC_AUTH_BASIC_USER}:${import.meta.env.PUBLIC_AUTH_BASIC_PASS}`,
+  );
 
 const onSubmit = (
   values: Record<string, any>,
@@ -57,17 +67,34 @@ const onSubmit = (
     .then((response) => {
       preview.value = "";
       resetForm();
+      toast({
+        title: "¡Mensaje enviado correctamente!",
+        description:
+          "Gracias por tu comentario. Estaremos en contacto contigo pronto",
+        type: "foreground",
+        variant: "primary",
+        duration: 5000,
+      });
       return response.json();
     })
     // eslint-disable-next-line no-console
     .then((data) => console.log(data))
     .catch((error) => {
+      toast({
+        title: "Error al enviar el mensaje",
+        description:
+          "Hubo un error al enviar el mensaje. Por favor, intenta nuevamente",
+        type: "foreground",
+        variant: "destructive",
+        duration: 5000,
+      })
       console.error("Error:", error);
     });
 };
 </script>
 <template>
   <div class="max-w-[90%] mx-auto mb-10 mt-32">
+    <Toaster />
     <p class="text-[32px] md:text-[44px] font-bold text-[#0D0D0D] mb-10">
       Queremos seguir mejorando para ti
     </p>
@@ -189,7 +216,10 @@ const onSubmit = (
           <p class="text-[#4D4D4D] font-medium text-[14px]">
             Acepto recibir noticias e información sobre nuestros curso y
             eventos.
-            <a href="https://drive.google.com/file/d/1j5bbAPuFsAi3nVOhfUlNJ23rRFdDZTBp/view?usp=sharing" target="_blank">
+            <a
+              href="https://drive.google.com/file/d/1j5bbAPuFsAi3nVOhfUlNJ23rRFdDZTBp/view?usp=sharing"
+              target="_blank"
+            >
               <span class="text-[#0D0D0D] underline"
                 >Leer acerca sobre nuestra política de tratamiento de
                 datos</span

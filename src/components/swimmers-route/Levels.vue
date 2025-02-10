@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { infoLevels } from "../Certificates/Data";
 
 defineProps<{
   group: number;
@@ -22,38 +23,65 @@ const levels = ref([
 <template>
   <div v-if="group !== 5" class="relative hidden lg:block select-none">
     <img src="/levels.png" alt="levels" />
-    <span
-      class="absolute top-[5%] left-[7.2%] text-[#2F326E] text-[2.5vw] font-bold"
-      :class="{ 'left-[5.9%]': group > 0 }"
-      >{{ Number(group * 10 + 0) }}</span
-    >
-    <span
-      class="absolute top-[5%] right-[7.2%] text-[#2F326E] text-[2.5vw] font-bold"
-      :class="{ 'right-[6.2%]': group > 0 }"
-      >{{ Number(group * 10 + 9) }}</span
-    >
+    <div class="absolute top-[2%] left-[4%] w-[8%] h-[15%] flex justify-center items-center">
+        <span
+          class="text-[#2F326E] text-[2.5vw] font-bold"
+          >{{ Number(group * 10 + 0) }}</span
+        >
+    </div>
     <div
-      class="absolute bottom-0 right-0 w-[42%] h-[42%] flex justify-center items-center"
+      class="absolute top-[2%] right-[4%] w-[8%] h-[15%] flex justify-center items-center"
+    >
+      <span
+        class="text-[#2F326E] text-[2.5vw] font-bold"
+        >{{ Number(group * 10 + 9) }}</span
+      >
+    </div>
+    <div
+      class="absolute bottom-0 right-0 w-[40%] h-[42%] flex justify-center items-center"
     >
       <div
-        class="font-inter rounded-3xl px-[2vw] py-4 bg-white space-y-1 max-w-[400px] 2xl:max-w-[450px]"
+        class="font-inter rounded-3xl px-5 py-3 bg-white space-y-1 w-[90%] 2xl:w-[70%] max-h-[90%] flex"
       >
-        <p class="text-center font-semibold text-[1.2vw] text-[#191825]">
-          Tiburoncin Coral (Niveles {{ group * 10 + 0 }}-{{ group * 10 + 9 }})
-        </p>
-        <p class="text-[1.2vw] xl:text-[1vw] 2xl:text-[0.9vw] text-[#19182580]">
-          Beneficio: Sin beneficios específicos, pero estás en camino a algo
-          grandioso.
-        </p>
-        <p class="text-[1.2vw] xl:text-[1vw] 2xl:text-[0.9vw] text-[#19182580]">
-          ¡Sigue avanzando!
-        </p>
-        <p class="text-[1.2vw] xl:text-[1vw] 2xl:text-[0.9vw] text-[#19182580]">
-          Penalidad: Tras 2 meses sin matrícula, bajas 2 niveles, luego 1 nivel
-          por mes.
-        </p>
+        <div class="w-full max-h-full overflow-auto pr-2">
+          <p class="text-center font-semibold text-[#191825] mb-1">
+            {{
+              `${infoLevels.categories[group].name} (Niveles ${infoLevels.categories[group].levels})`
+            }}
+          </p>
+          <p
+            v-if="infoLevels.categories[group].benefits.length === 1"
+            class="text-sm mb-1 text-[#19182580]"
+          >
+            <span class="font-semibold">Beneficios:</span>
+            {{ infoLevels.categories[group].benefits[0] }}
+          </p>
+          <span v-else class="text-sm mb-1 text-[#19182580]">
+            <span class="font-semibold">Beneficios:</span>
+            <ul class="list-disc pl-4">
+              <li
+                v-for="benefit in infoLevels.categories[group].benefits"
+                :key="benefit"
+              >
+                {{ benefit }}
+              </li>
+            </ul>
+          </span>
+          <p class="text-sm mb-1 text-[#19182580]">
+            <span class="font-semibold">Penalidad:</span>
+            {{ infoLevels.categories[group].penalty }}
+          </p>
+          <p
+            v-if="infoLevels.categories[group].recoveries"
+            class="text-sm mb-1 text-[#19182580]"
+          >
+            <span class="font-semibold">Recuperaciones:</span>
+            {{ infoLevels.categories[group].recoveries }}
+          </p>
+        </div>
       </div>
     </div>
+
     <div
       v-for="(_, index) in levels"
       :key="index"
@@ -81,20 +109,26 @@ const levels = ref([
               class="absolute left-1/2 -translate-x-1/2 -top-3 z-1 bg-[#2F326C] w-[30px] h-[30px] rounded-[3px] rotate-45"
             ></div>
             <p class="relative text-xs font-inter z-2">
-              Nivel {{ group * 10 + 5 }}: Cuaderno de la academia gratis (precio
-              regular: 18 soles).
+              Nivel {{ group * 10 + 5 }}:
+              {{ infoLevels.milestone_rewards[group].reward }}
             </p>
           </div>
         </div>
-        <div v-if="userLevel === group * 10 + index - 1">
-          <div class="absolute -top-[100px] -left-8 animate-bounce"
-          :class="{'-top-[140px]': index === 5}">
+        <div v-if="userLevel === group * 10 + index">
+          <div
+            class="absolute -top-[100px] -left-8 animate-bounce"
+            :class="{ '-top-[140px]': index === 5 }"
+          >
             <div class="relative w-20 h-[90px] shadow-xl">
               <div class="bg-[#2F326E] rounded-md w-full h-full p-2">
-                <p class="text-white font-semibold text-center text-sm">Nivel {{ group * 10 + index  }}</p>
-                <img src="/baby-shark.png" alt="">
+                <p class="text-white font-semibold text-center text-sm">
+                  Nivel {{ group * 10 + index }}
+                </p>
+                <img src="/baby-shark.png" alt="" />
               </div>
-              <div class="bg-[#2F326E] absolute -bottom-2 left-1/2 -translate-x-1/2 rotate-45 w-4 h-4"></div>
+              <div
+                class="bg-[#2F326E] absolute -bottom-2 left-1/2 -translate-x-1/2 rotate-45 w-4 h-4"
+              ></div>
             </div>
           </div>
         </div>
@@ -108,38 +142,48 @@ const levels = ref([
       >{{ 50 }}
     </span>
     <div
-      class="font-inter rounded-3xl px-10 py-4 bg-white absolute lg:right-[5%] lg:top-[8vw] xl:right-[10%] xl:top-[12vw] 2xl:top-[14vw] 2xl:right-[20%] space-y-1 lg:max-w-[430px] xl:max-w-[430px] 2xl:max-w-[370px]"
+      class="absolute bottom-0 right-0 w-[45%] h-[85%] xl:top-[20%] xl:left-[55%] xl:w-[40%] xl:h-[75%] 2xl:w-[30%] flex justify-center items-center"
     >
-      <p class="text-center font-semibold text-[#191825] mb-2">
-        Tiburoncin Legendario
-      </p>
-      <ul class="list-disc space-y-1">
-        <li class="text-xs text-[#19182580]">
-          Descuento de 25% en todas las matrículas futuras.
-        </li>
-        <li class="text-xs text-[#19182580]">
-          Descuento de 50% en todo el merchandising de Nadadores UNI.
-        </li>
-        <li class="text-xs text-[#19182580]">
-          Amigo Gratis: 6 horas mensuales para invitar a un amigo a clase.
-        </li>
-        <li class="text-xs text-[#19182580]">
-          Vacante Garantizada en el horario que necesites.
-        </li>
-        <li class="text-xs text-[#19182580]">
-          Premios Exclusivos: Polo, gorro y cuaderno gratis.
-        </li>
-        <li class="text-xs text-[#19182580]">
-          Reconocimiento: Foto en la "Ruta de Honor" en nuestra página web.
-        </li>
-        <li class="text-xs text-[#19182580]">
-          Recuperaciones: 4 recuperaciones por mes sin justificación.
-        </li>
-        <li class="text-xs text-[#19182580]">
-          Penalidad: Tras 6 meses sin matrícula, bajas solo 1 nivel, luego 1
-          nivel por mes.
-        </li>
-      </ul>
+      <div
+        class="font-inter rounded-3xl px-5 py-3 bg-white space-y-1 w-[90%] max-h-[90%] flex"
+      >
+        <div class="w-full max-h-full overflow-auto pr-2">
+          <p class="text-center font-semibold text-[#191825] mb-1">
+            {{
+              `${infoLevels.categories[group].name} (Nivel ${infoLevels.categories[group].levels})`
+            }}
+          </p>
+          <p
+            v-if="infoLevels.categories[group].benefits.length === 1"
+            class="text-sm mb-1 text-[#19182580]"
+          >
+            <span class="font-semibold">Beneficios:</span>
+            {{ infoLevels.categories[group].benefits[0] }}
+          </p>
+          <span v-else class="text-sm mb-1 text-[#19182580]">
+            <span class="font-semibold">Beneficios:</span>
+            <ul class="list-disc pl-4">
+              <li
+                v-for="benefit in infoLevels.categories[group].benefits"
+                :key="benefit"
+              >
+                {{ benefit }}
+              </li>
+            </ul>
+          </span>
+          <p class="text-sm mb-1 text-[#19182580]">
+            <span class="font-semibold">Penalidad:</span>
+            {{ infoLevels.categories[group].penalty }}
+          </p>
+          <p
+            v-if="infoLevels.categories[group].recoveries"
+            class="text-sm mb-1 text-[#19182580]"
+          >
+            <span class="font-semibold">Recuperaciones:</span>
+            {{ infoLevels.categories[group].recoveries }}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
