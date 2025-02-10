@@ -1,7 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BannerHome from "@/components/Home/BannerHome.vue";
+import Layout from "../layouts/Layout.astro";
+import Enroll from "@/components/Home/Enroll.astro";
+import OurCourses from "@/components/Home/OurCourses.astro";
+import OurHeadquarters from "@/components/Home/OurHeadquarters.astro";
+import Numbers from "@/components/Home/Numbers.astro";
+import OurMethodology from "@/components/Home/OurMethodology.astro";
+import Testimonies from "@/components/Home/Testimonies.vue";
+import Suggestions from "@/components/Home/Suggestions.vue";
 ---
 
 <Layout title="Nadadores UNI">
-	HOME
+  <BannerHome client:load />
+  <OurCourses />
+  <OurHeadquarters />
+  <Numbers />
+  <OurMethodology />
+  <Testimonies client:load />
+  <Suggestions client:load />
+  <Enroll />
 </Layout>

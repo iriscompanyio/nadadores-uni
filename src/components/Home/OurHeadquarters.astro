@@ -1,0 +1,62 @@
+---
+import Croquis from "./Croquis.vue";
+---
+
+<div class="relative overflow-x-clip">
+  <div
+    class="relative flex flex-col justify-center items-center lg:justify-between py-8 lg:py-12 w-[80%] 2xl:w-[70%] mx-auto z-20"
+  >
+    <p
+      class="text-[#2F326E] font-bold text-[33px] lg:text-[44px] mb-12 leading-tight lg:self-start"
+    >
+      Nuestras sedes
+    </p>
+    <div class="flex flex-col md:flex-row space-y-6 md:space-x-6 md:space-y-0">
+      <div
+        class="w-[320px] lg:w-[450px] 2xl:w-[576px] shrink-0 flex flex-col shadow-[0px_4px_12px_rgba(0,0,0,0.1)] rounded-3xl overflow-hidden bg-white"
+      >
+        <div
+          class="rounded-[8px] lg:w-[450px] 2xl:w-[576px] h-[300px] lg:h-[411px] bg-[url('https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/shvld8rbxogynfcnvnph')] bg-center bg-no-repeat bg-cover"
+        >
+        </div>
+        <div class="p-6 space-y-4">
+          <p
+            class="text-[#191825] font-medium text-[20px] lg:text-[23px] text-left"
+          >
+            Piscina Ricardo Bentín
+          </p>
+          <Croquis
+            client:load
+            title="Piscina Ricardo Bentín"
+            url="https://maps-api-ssl.google.com/maps?hl=en-US&ll=-12.029103,-77.038263&output=embed&q=Prol.+los+Molinos+1060,+R%C3%ADmac+15094,+Per%C3%BA+(Prol.+los+Molinos+1060)&z=17"
+          />
+        </div>
+      </div>
+      <div
+        class="w-[320px] lg:w-[450px] 2xl:w-[576px] shrink-0 flex flex-col shadow-[0px_4px_12px_rgba(0,0,0,0.1)] rounded-3xl overflow-hidden bg-white"
+      >
+        <div
+          class="rounded-[8px] lg:w-[450px] 2xl:w-[576px] h-[300px] lg:h-[411px] bg-[url('https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/index/kbxa6xugzn9enkidghfp')] bg-center bg-no-repeat bg-cover"
+        >
+        </div>
+        <div class="p-6 space-y-4">
+          <p
+            class="text-[#191825] font-medium text-[20px] lg:text-[23px] text-left"
+          >
+            Piscina Mercedes Cabello
+          </p>
+          <Croquis
+            client:load
+            title="Piscina Mercedes Cabello"
+            url="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d975.5627443136163!2d-77.046088!3d-12.026235!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cf24c8f8c965%3A0x713a6a64cfddba46!2sColegio%20Emblem%C3%A1tico%20Mercedes%20Cabello%20de%20Carbonera!5e0!3m2!1ses!2spe!4v1737241168389!5m2!1ses!2spe"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <img
+    src="/fish-bg2.svg"
+    alt=""
+    class="absolute -bottom-72 right-0 z-10 min-w-[800px]"
+  />
+</div>

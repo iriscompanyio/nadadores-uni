@@ -1,0 +1,138 @@
+---
+import { Button } from "@/components/ui/button";
+import Layout from "../layouts/Layout.astro";
+
+const showButton = true;
+---
+
+<Layout title="Eventos">
+  <img
+    src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738974273/Eventos_Portada_wrps9p.png"
+    alt="googles"
+    class="relative w-full max-h-[600px] z-10 object-cover"
+  />
+  <div class="px-8 sm:px-20 py-6 sm:py-12 max-w-[1440px] mx-auto">
+    <p
+      class="text-[#2F326E] font-bold text-[33px] lg:text-[44px] mb-4 leading-tight text-center sm:text-left"
+    >
+      Nuestro último <br class="sm:hidden" /> evento
+    </p>
+  </div>
+  <div class="relative mb-10">
+    <div class="flex flex-col md:flex-row md:items-center gap-x-10 gap-y-8">
+      <div class="rounded-r-xl overflow-hidden min-w-[350px] sm:max-w-[629px]">
+        <img
+          src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738974414/Eventos_Ultimo_bhvhwr.png"
+          alt="nadador-eventos"
+        />
+      </div>
+      <div class="font-inter max-w-[556px] px-10 mx-auto">
+        <p
+          class="text-[#2F326E] font-bold text-[34px] mb-4 text-center sm:text-left"
+        >
+          I Copa Nadadores UNI
+        </p>
+        <p class="text-lg mb-4">
+          El pasado 19 de mayo, la piscina del Colegio José Granda fue escenario
+          de la I Copa Nadadores UNI, una competencia única que reunió a 12
+          clubes y 5 universidades de alto nivel. Con un espíritu de alto
+          rendimiento y pasión por la natación, esta primera edición destacó por
+          su excelente convocatoria y un ambiente de sana competencia,
+          impulsando el talento y la dedicación de cada nadador.
+        </p>
+        { showButton &&
+        <a href="https://www.instagram.com/_nadadores_uni/?hl=es" target="_blank" class="flex justify-center">
+          <Button>Más información</Button>
+        </a>
+        }
+      </div>
+    </div>
+    <img
+      src="/fish-bg5.svg"
+      alt=""
+      class="absolute -bottom-20 right-0 hidden md:block -z-10"
+    />
+  </div>
+  <div
+    class="relative flex items-center font-inter flex-wrap mt-32 mb-28 lg:mb-60"
+  >
+    <p
+      class="text-[#2F326E] font-bold text-[34px] mb-4 mx-20 text-center sm:text-left"
+    >
+      Actividades <br class="hidden xl:block" /> Extras
+    </p>
+    <div class="flex gap-10 mx-auto flex-wrap px-10">
+      <div class="w-[284px] mx-auto">
+        <p class="text-[#1E1E1E] font-semibold mb-2 text-xl">
+          Cierres de temporada
+        </p>
+        <p>
+          Al final de cada mes, hacemos diversas dinámicas y un compartir, donde
+          los alumnos se integran y logran medir su avance.
+        </p>
+      </div>
+      <div class="w-[284px] mx-auto">
+        <p class="text-[#1E1E1E] font-semibold mb-2 text-xl">Clases en playa</p>
+        <p>
+          Ofrecemos clases de natación gratuitas en la playa, buscando el
+          aprendizaje en aguas abiertas y el vencer el miedo a nadar en el mar.
+        </p>
+      </div>
+      <div class="w-[284px] mx-auto">
+        <p class="text-[#1E1E1E] font-semibold mb-2 text-xl">
+          Competencias internas
+        </p>
+        <p>
+          Realizamos competencias internas donde nuestros nadadores miden su
+          avance, permitiendo identificar y seleccionar a los mejores talentos
+          para representar a nuestro equipo
+        </p>
+      </div>
+    </div>
+    <img src="/fish-bg6.svg" alt="" class="absolute -top-48 left-0 -z-10" />
+  </div>
+  <div class="mb-10">
+    <div class="flex flex-col lg:flex-row items-center gap-4 xl:gap-y-0">
+      <div class="font-inter max-w-[650px] px-10 mx-auto">
+        <p
+          class="text-[#2F326E] font-bold text-[34px] mb-4 text-center xl:text-left"
+        >
+          Logros obtenidos
+        </p>
+        <p class="text-[#1E1E1E] text-lg">
+          A lo largo de nuestra historia, hemos brillado en competencias de
+          piscina y aguas abiertas. Recientemente, celebramos un emocionante
+          logro al obtener el 2do y 3er puesto en la I Válida de Acuatlón 2025.
+          Hace poco, celebramos el 3er puesto en el Campeonato Nacional de Acuatlón -
+          3ra válida y el 3er puesto en el Tri Regatas - 2da válida de triatlón,
+          ambos organizados por la Federación Nacional de Triatlón. ¡Estos
+          triunfos son el resultado de la dedicación y el esfuerzo de nuestros
+          talentosos nadadores! Seguimos marcando la diferencia en cada brazada.
+        </p>
+      </div>
+      <div
+        class="flex flex-col xl:flex-row items-center gap-2 sm:gap-8 xl:gap-y-0 flex-shrink-0"
+      >
+        <div class="flex xl:flex-col gap-2 sm:gap-8 xl:gap-x-0">
+          <img
+            src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738974734/Eventos_Logros_02_mofvd9.png"
+            alt="logro1"
+            class="w-[160px] h-[172px] sm:w-[223px] sm:h-[240px] object-cover rounded-xl scale-x-[-1]"
+          />
+          <img
+            src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738974708/Eventos_Logros_01_bkr4yc.png"
+            alt="logro2"
+            class="w-[160px] h-[172px] sm:w-[223px] sm:h-[240px] object-cover rounded-xl scale-x-[-1]"
+          />
+        </div>
+        <div class="mx-4 sm:mx-0">
+          <img
+            src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738974749/Eventos_Logros_03_qf7opk.png"
+            alt="logro3"
+            class="sm:w-[458px] object-cover scale-x-[-1] rounded-xl xl:rounded-l-none xl:rounded-r-xl"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

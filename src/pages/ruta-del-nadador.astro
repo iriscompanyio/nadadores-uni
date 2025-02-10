@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LevelsCarousel from "@/components/swimmers-route/LevelsCarousel.vue";
+---
+
+<Layout title="Ruta del Nadador">
+  <div class="bg-[#F1F3FF] pt-12 w-full">
+    <div
+      class="max-w-screen-2xl flex flex-col m-auto w-full px-5 md:px-14 gap-y-12 mb-16"
+    >
+      <div class="flex gap-x-10 flex-col md:flex-row gap-y-5 justify-between">
+        <div class="max-w-[725px]">
+          <p
+            class="text-[#2F326E] font-bold text-[33px] lg:text-[44px] mb-4 leading-tight text-center sm:text-left"
+          >
+            La Ruta del <br /> Nadador
+          </p>
+          <p class="text-[#19182580] text-lg font-inter">
+            Descubre la experiencia de superación personal en cada metro de
+            avance y conviértete en un Tiburón Legendario. Cada matrícula es una
+            oportunidad para sumar puntos, subir de nivel y disfrutar de
+            recompensas únicas. ¡Sumérgete y comienza tu travesía!
+          </p>
+          <a href="https://www.facebook.com/NadadoresUNI" target="_blank"> Más Información.</a>
+        </div>
+        <div
+          class="bg-white rounded-3xl shadow-xl px-6 lg:px-8 py-6 md:self-end min-w-[310px] md:min-w-[350px]"
+        >
+          <p
+            class="text-[#2F326E] font-bold text-[20px] mb-4 leading-tight text-center sm:text-left"
+          >
+            Sistema de Puntos por Frecuencia de Matrícula
+          </p>
+          <ul class="text-[#19182580] sm:text-lg font-inter list-disc pl-4">
+            <li>Sabatino: 1 punto (1 nivel)</li>
+            <li>Interdiario: 3 puntos (3 niveles)</li>
+            <li>Diario: 5 puntos (5 niveles)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <LevelsCarousel client:load />
+  </div>
+</Layout>
