@@ -58,10 +58,10 @@ const pages: Ref<Page[]> = ref([
     label: "Eventos",
     link: "/eventos",
   },
-  // {
-  //   label: "Ruta del Nadador",
-  //   link: "/ruta-del-nadador",
-  // },
+  {
+    label: "Ruta del Nadador",
+    link: "/ruta-del-nadador",
+  },
 ]);
 
 const isOpen = ref(false);
