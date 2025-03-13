@@ -63482,15 +63482,19 @@ export const infoLevels = {
   "title": "La Ruta del Nadador",
   "description": "Descubre la experiencia de superación personal en cada metro de avance y conviértete en un Tiburón Legendario. Cada matrícula es una oportunidad para sumar puntos, subir de nivel y disfrutar de recompensas únicas.",
   "points_system": {
-    "Sabatino": {
+    "1 vez por semana": {
       "points": 1,
       "levels": 1
     },
-    "Interdiario": {
-      "points": 3,
-      "levels": 3
+    "2 veces por semana": {
+      "points": 2,
+      "levels": 2
     },
-    "Diario": {
+    "3 veces por semana": {
+      "points": 5,
+      "levels": 5
+    },
+    "5 veces por semana": {
       "points": 5,
       "levels": 5
     }
