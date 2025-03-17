@@ -58,10 +58,10 @@ const pages: Ref<Page[]> = ref([
     label: "Eventos",
     link: "/eventos",
   },
-  {
-    label: "Ruta del Nadador",
-    link: "/ruta-del-nadador",
-  },
+  // {
+  //   label: "Ruta del Nadador",
+  //   link: "/ruta-del-nadador",
+  // },
 ]);
 
 const isOpen = ref(false);
@@ -82,7 +82,7 @@ watch(isOpen, () => {
       class="w-[95%] xl:w-[82%] h-full mx-auto flex items-center justify-between"
     >
       <a href="/" class="w-[220px]">
-        <img src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738901474/Recurso_10_fkrrv5.png" alt="logo" />
+        <img src="/logo.svg" alt="logo" />
       </a>
       <div>
         <ul class="flex gap-5 lg:gap-8 xl:gap-12">
@@ -134,7 +134,7 @@ watch(isOpen, () => {
     >
       <div class="w-[154px]">
         <a href="/">
-          <img src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738901474/Recurso_10_fkrrv5.png" alt="logo" />
+          <img src="/logo.svg" alt="logo" />
         </a>
       </div>
       <button
@@ -150,7 +150,7 @@ watch(isOpen, () => {
       >
         <div class="w-[154px]">
           <a href="/">
-            <img src="https://res.cloudinary.com/dqpg07sfp/image/upload/v1738901474/Recurso_10_fkrrv5.png" alt="logo" />
+            <img src="/logo.svg" alt="logo" />
           </a>
         </div>
         <div>
