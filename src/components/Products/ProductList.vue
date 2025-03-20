@@ -39,6 +39,12 @@ const products = ref<Product[]>([
     image:
       "https://res.cloudinary.com/dkljgkuyy/image/upload/f_auto,q_auto/v1/nadadores/products/dm1de8awvkkp8h9xlsbq",
   },
+  {
+    id: "6",
+    name: "Toalla de Microfibra Gamuzada",
+    image:
+      "https://res.cloudinary.com/dany0825/image/upload/v1742361172/nadadoresuni/Toalla_Microfibra_Gamuzada_lfdddr.png",
+  },
 ]);
 </script>
 <template>
