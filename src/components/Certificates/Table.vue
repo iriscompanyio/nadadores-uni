@@ -144,7 +144,7 @@ fetchData();
               const target = e.target as HTMLInputElement;
               table.setColumnFilters([
                 ...columnFilters,
-                { id: 'name', value: target.value },
+                { id: 'fullName', value: target.value },
               ]);
             }
           "
@@ -161,7 +161,7 @@ fetchData();
               const target = e.target as HTMLInputElement;
               table.setColumnFilters([
                 ...columnFilters,
-                { id: 'studentCode', value: target.value },
+                { id: 'code', value: target.value },
               ]);
             }
           "
