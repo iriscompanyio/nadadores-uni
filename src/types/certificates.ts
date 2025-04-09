@@ -12,3 +12,11 @@ export interface Certificate {
     periods:     string;
     totalHours:  string;
 }
+
+export interface User {
+    category: string;
+    dni:      string;
+    lastName: string;
+    level:    string;
+    name:     string;
+}

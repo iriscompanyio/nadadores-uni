@@ -5,10 +5,12 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Levels from "@/components/swimmers-route/Levels.vue";
-import { computed, ref, watch } from "vue";
+import { computed, ref } from "vue";
 import Button from "@/components/ui/button/Button.vue";
 
-import { dataTiburoncin, infoLevels } from "../Certificates/Data";
+import { infoLevels } from "../Certificates/Data";
+import type { ResponseSuccess, User } from "@/types/certificates";
+import { LoaderCircle } from "lucide-vue-next";
 
 const userDni = ref("");
 const currentUser = ref();
@@ -20,27 +22,51 @@ const groupLevel = computed(() => {
   return 0;
 });
 const alreadySearched = ref(false);
+const isLoading = ref(false);
 
 const carouselRef = ref<HTMLElement | null>(null);
 
-const search = () => {
-  const user = dataTiburoncin.find(
-    (user) => user.DNI === Number(userDni.value),
+const auth = () =>
+  btoa(
+    `${import.meta.env.PUBLIC_AUTH_BASIC_USER}:${import.meta.env.PUBLIC_AUTH_BASIC_PASS}`,
   );
-  if (user) {
-    currentUser.value = user;
-  }
-  if (!user) {
-    currentUser.value = null;
-    userLevel.value = undefined;
-  }
-  alreadySearched.value = true;
-  if (currentUser.value) {
-    userLevel.value = currentUser.value["NIVEL ACTUAL"];
-    carouselRef.value?.scrollTo(
-      Math.floor(userLevel.value! / 10) as ScrollOptions,
-    );
-  }
+
+// Fail https://mocki.io/v1/cbddc697-4b6e-4eec-8539-f84d36989142
+// Success https://mocki.io/v1/9150398b-8e54-4034-9525-443a5a3121a3
+const fetchUser = async () => {
+  isLoading.value = true;
+  fetch(`${import.meta.env.PUBLIC_API_URL}/services/profile/level?dni=${ userDni.value }`, {
+    method: "GET",
+    headers: {
+      Authorization: `Basic ${auth()}`,
+    }
+  }).then(async (response) => {
+    const res: ResponseSuccess<User> = await response.json();
+    if (res.data.length > 0) {
+      currentUser.value = res.data[0];
+      alreadySearched.value = true;
+      if (currentUser.value) {
+        userLevel.value = Number(currentUser.value.level);
+        carouselRef.value?.scrollTo(
+          Math.floor(userLevel.value! / 10) as ScrollOptions,
+        );
+      }
+      console.log(currentUser.value);
+    } else {
+      alreadySearched.value = true;
+      currentUser.value = null;
+      userLevel.value = undefined;
+    }
+  }).catch((error) => {
+    console.log(error);
+  }).finally(() => {
+    isLoading.value = false;
+  })
+};
+
+const search = () => {
+  if(!userDni.value) return
+  fetchUser();
 };
 </script>
 <template>
@@ -68,12 +94,14 @@ const search = () => {
           Buscar
         </Button>
       </div>
-      <div v-if="currentUser">
+      <LoaderCircle v-if="isLoading" class="w-10 h-10 animate-spin" />
+      <div v-if="!isLoading && currentUser">
         <p class="font-inter font-semibold text-sm text-[#666666] mb-2">
           Resultados:
         </p>
         <p class="font-inter text-sm text-[#666666]">
-          {{ currentUser.Nombres }} {{ currentUser.Apellidos }}
+          {{ currentUser.name }} {{ currentUser.lastName }} -
+          {{ currentUser.category }}
         </p>
       </div>
       <div v-if="!currentUser && alreadySearched">
@@ -184,8 +212,9 @@ const search = () => {
         class="absolute top-[5vw] left-[74%] text-[#2F326E] text-[8vw] font-bold"
         >{{ userLevel }}</span
       >
-      <div class="absolute top-[48%] h-[52%] left-0 w-full flex justify-center items-center">
-        
+      <div
+        class="absolute top-[48%] h-[52%] left-0 w-full flex justify-center items-center"
+      >
         <div
           class="font-inter rounded-3xl px-5 py-3 sm:py-8 bg-white space-y-1 w-[90%] max-h-full flex"
         >
