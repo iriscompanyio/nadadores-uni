@@ -17,43 +17,45 @@ import {
   useVueTable,
   type ColumnFiltersState,
 } from "@tanstack/vue-table";
-import { type Student, realData } from "@/components/Certificates/Data";
 import { computed, ref } from "vue";
 import {
   ChevronLeft,
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
+  LoaderCircle,
 } from "lucide-vue-next";
 
-const data = ref([...realData]);
+import type { ResponseSuccess, Certificate } from "@/types/certificates";
 
-const columnHelper = createColumnHelper<Student>();
+const data = ref<Certificate[]>([]);
+
+const columnHelper = createColumnHelper<Certificate>();
 
 const columns = [
-  columnHelper.accessor("name", {
+  columnHelper.accessor("fullName", {
     header: () => "Nombre",
     cell: (info) => info.getValue(),
     filterFn: "includesString",
   }),
-  columnHelper.accessor("certificateCode", {
+  columnHelper.accessor("certificate", {
     header: () => "Código Certificado",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor("studentCode", {
+  columnHelper.accessor("code", {
     header: () => "Código Alumno",
     cell: (info) => info.getValue(),
     filterFn: "includesString",
   }),
-  columnHelper.accessor("period", {
+  columnHelper.accessor("periods", {
     header: () => "Periodos",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor("completedHours", {
+  columnHelper.accessor("totalHours", {
     header: () => "Horas Completadas",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor("issueDate", {
+  columnHelper.accessor("dateOfIssue", {
     header: () => "Fecha de expedición",
     cell: (info) => info.getValue(),
   }),
@@ -106,18 +108,26 @@ const visiblePageNumbers = computed(() => {
   ];
 });
 
+const auth = () =>
+  btoa(
+    `${import.meta.env.PUBLIC_AUTH_BASIC_USER}:${import.meta.env.PUBLIC_AUTH_BASIC_PASS}`,
+  );
+
 const fetchData = async () => {
-  const res = await fetch(
-    'api/alumnos',  
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  )
-  data.value = await res.json(); 
-}
+  fetch(`${import.meta.env.PUBLIC_API_URL}/services/certificates/list`, {
+    method: "GET",
+    headers: {
+      Authorization: `Basic ${auth()}`,
+    },
+  }).then(async (response) => {
+    const res: ResponseSuccess<Certificate> = await response.json();
+    data.value = res.data;
+  }).catch((error) => {
+    console.log(error);
+  });
+};
+
+fetchData();
 
 </script>
 <template>
@@ -136,7 +146,7 @@ const fetchData = async () => {
               const target = e.target as HTMLInputElement;
               table.setColumnFilters([
                 ...columnFilters,
-                { id: 'name', value: target.value },
+                { id: 'fullName', value: target.value },
               ]);
             }
           "
@@ -153,7 +163,7 @@ const fetchData = async () => {
               const target = e.target as HTMLInputElement;
               table.setColumnFilters([
                 ...columnFilters,
-                { id: 'studentCode', value: target.value },
+                { id: 'code', value: target.value },
               ]);
             }
           "
@@ -188,6 +198,13 @@ const fetchData = async () => {
               />
             </TableCell>
           </TableRow>
+          <TableRow v-if="table.getRowModel().rows.length === 0">
+    <TableCell :colspan="table.getAllColumns().length" class="text-center py-4">
+      <div class="w-full flex items-center justify-center">
+        <LoaderCircle class="w-12 h-12 text-[#2F326E] animate-spin" />
+      </div>
+    </TableCell>
+  </TableRow>
         </TableBody>
       </Table>
       <div class="flex sm:gap-x-1 justify-end mt-4">
