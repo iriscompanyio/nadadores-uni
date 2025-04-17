@@ -3,14 +3,11 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSubContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { disableScroll, enableScroll } from "@/lib/scroll";
 import { ChevronDown, ChevronUp, Menu, Search, X } from "lucide-vue-next";
 import { ref, watch } from "vue";
-import DropdownMenuSub from "./ui/dropdown-menu/DropdownMenuSub.vue";
-import DropdownMenuSubTrigger from "./ui/dropdown-menu/DropdownMenuSubTrigger.vue";
 
 import { type Ref } from "vue";
 
@@ -26,6 +23,8 @@ interface Page {
   isOpenMobile?: boolean;
   menu?: MenuItem[];
 }
+
+const showSwimmingRoute = Number(import.meta.env.PUBLIC_SHOW_SWIMMING_ROUTE);
 
 const pages: Ref<Page[]> = ref([
   {
@@ -58,12 +57,14 @@ const pages: Ref<Page[]> = ref([
     label: "Eventos",
     link: "/eventos",
   },
-  {
-    label: "Ruta del Nadador",
-    link: "/ruta-del-nadador",
-  },
 ]);
 
+if (showSwimmingRoute) {
+  pages.value.push({
+    label: "Ruta del Nadador",
+    link: "/ruta-del-nadador",
+  });
+}
 const isOpen = ref(false);
 
 watch(isOpen, () => {

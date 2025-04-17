@@ -122,6 +122,8 @@ const fetchData = async () => {
   }).then(async (response) => {
     const res: ResponseSuccess<Certificate> = await response.json();
     data.value = res.data;
+  }).catch((error) => {
+    console.log(error);
   });
 };
 
