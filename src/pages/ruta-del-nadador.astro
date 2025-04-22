@@ -1,6 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import LevelsCarousel from "@/components/swimmers-route/LevelsCarousel.vue";
+
+
+const showSwimmingRoute = Number(import.meta.env.PUBLIC_SHOW_SWIMMING_ROUTE);
+
+if(!showSwimmingRoute) {
+  return Astro.redirect("/"); 
+}
+
 ---
 
 <Layout title="Ruta del Nadador">
