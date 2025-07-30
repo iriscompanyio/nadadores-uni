@@ -79,23 +79,23 @@ export const infoLevels = {
   "milestone_rewards": [
     {
       "level": 5,
-      "reward": "Cuaderno de la academia gratis (precio regular: 20 soles)"
+      "reward": "Tomatodo de la academia gratis."
     },
     {
       "level": 15,
-      "reward": "Gorro de la academia gratis (precio regular: 35 soles)"
+      "reward": "Cuaderno de la academia gratis."
     },
     {
       "level": 25,
-      "reward": "Polo de la academia gratis (precio regular: 45 soles)"
+      "reward": "Gorro de la academia gratis."
     },
     {
       "level": 35,
-      "reward": "Toalla de microfibra de la academia gratis (precio regular: 55 soles)"
+      "reward": "Polo de la academia gratis."
     },
     {
       "level": 45,
-      "reward": "Poncho/cambiador de microfibra gratis (precio regular: 70 soles)"
+      "reward": "Toalla de microfibra de la academia gratis"
     }
   ],
   "rules": [
