@@ -1,14 +1,7 @@
-import animate from "tailwindcss-animate";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ["class"],
-  safelist: ["dark"],
-  prefix: "",
-
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-
   theme: {
     container: {
       center: true,
@@ -90,5 +83,4 @@ export default {
       },
     },
   },
-  plugins: [animate],
 };
