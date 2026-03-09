@@ -77,13 +77,14 @@ const state = ref<State>({
 })
 
 function dispatch(action: Action) {
+  const s = state.value as unknown as State
   switch (action.type) {
     case actionTypes.ADD_TOAST:
-      state.value.toasts = [action.toast, ...state.value.toasts].slice(0, TOAST_LIMIT)
+      s.toasts = [action.toast, ...s.toasts].slice(0, TOAST_LIMIT)
       break
 
     case actionTypes.UPDATE_TOAST:
-      state.value.toasts = state.value.toasts.map(t =>
+      s.toasts = s.toasts.map(t =>
         t.id === action.toast.id ? { ...t, ...action.toast } : t,
       )
       break
@@ -95,12 +96,12 @@ function dispatch(action: Action) {
         addToRemoveQueue(toastId)
       }
       else {
-        state.value.toasts.forEach((toast) => {
+        s.toasts.forEach((toast) => {
           addToRemoveQueue(toast.id)
         })
       }
 
-      state.value.toasts = state.value.toasts.map(t =>
+      s.toasts = s.toasts.map(t =>
         t.id === toastId || toastId === undefined
           ? {
               ...t,
@@ -113,9 +114,9 @@ function dispatch(action: Action) {
 
     case actionTypes.REMOVE_TOAST:
       if (action.toastId === undefined)
-        state.value.toasts = []
+        s.toasts = []
       else
-        state.value.toasts = state.value.toasts.filter(t => t.id !== action.toastId)
+        s.toasts = s.toasts.filter(t => t.id !== action.toastId)
 
       break
   }
