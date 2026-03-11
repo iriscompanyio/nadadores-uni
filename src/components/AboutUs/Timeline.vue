@@ -11,35 +11,29 @@ const years = [
     year: 2017,
     title: "Origen de todo",
     description:
-      "Un grupo amigos de la UNI tuvieron la idea de formar un grupo de natación para nadar en sus ratos libres. Organizaron una competencia y descubrieron que había muchos alumnos interesados en nadar.",
+      "Desde 2017, Nadadores UNI crece con resiliencia e innovación, fruto de una iniciativa entre alumnos apasionados por la natación.",
   },
   {
     year: 2018,
-    title: "Primera directiva",
+    title: "Fundación y prima sede",
     description:
-      "El 5 de abril de 2018, se formó la primera directiva a cargo de Jorge Sotelo y se fundó oficialmente Nadadores UNI.",
-  },
-  {
-    year: 2018,
-    title: "Primera sede",
-    description:
-      "Nadadores UNI consiguió un convenio con la concesionaria del Colegio Mercedes Cabello para brindar clases de natación de calidad a un bajo costo.",
+      "El 5 de abril de 2018 se formó la primera directiva y se aperturó la primera sede en el Colegio Mercedes Cabello",
   },
   {
     year: 2019,
-    title: "1era triatlón",
+    title: "Primera triatlón",
     description:
       "Bajo la organización del nuevo presidente, Leonardo Chavez, se desarrolló con éxito la primera Triatlón UNI, evento que se ha convertido en tradición de verano.",
   },
   {
-    year: 2019,
-    title: "Regreso a FEDUP",
+    year: 2020,
+    title: "Afrontando la pandemia",
     description:
-      "Se logró enviar 4 alumnos UNI a la competencia interuniversitaria más exigente del Perú: FEDUP. La UNI volvió a tener presencia después de muchos años.",
+      "En 2020 nos adaptamos a los retos de la pandemia, brindando charlas virtuales y talleres prácticos para ejercitarse desde casa.",
   },
   {
     year: 2021,
-    title: "2 sedes",
+    title: " Segunda sede",
     description:
       "Con el objetivo de seguir fomentando el deporte y ayudar a más personas a aprender a nadar, se obtuvo un convenio con el Colegio Ricardo Bentin como segunda sede.",
   },
@@ -47,13 +41,19 @@ const years = [
     year: 2022,
     title: "Sistema de matrícula",
     description:
-      "Nadadores UNI logra obtener un sistema de matrícula automático que permite al alumno matricularse por su propia cuenta.",
+      "Fortalecimos nuestra comunidad con plataformas digitales e incluimos un sistema automático de matrícula, con  el objetivo de mejorar la experiencia de los usuarios",
   },
   {
-    year: 2024,
-    title: "Sitio web",
+    year: 2023,
+    title: "Nivel competitivo",
     description:
-      "Con el esfuerzo de la misma Directiva, se logra crear el primer sitio web de Nadadores UNI, integrando su sistema de matrícula, recompensas, implementos y demás.",
+      "Desde el 2023 venimos participando en competencias nacionales e internacionales, y sumamos disciplinas complementarias como el atletismo y el ciclismo. ",
+  },
+  {
+    year: 2025,
+    title: "Asociados a la Federaión",
+    description:
+      "Hoy, como club privado afiliado a la Federación Peruana de Triatlón, competimos nacional e internacionalmente y seguimos creciendo con orgullo. ",
   },
 ];
 
